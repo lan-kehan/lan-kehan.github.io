@@ -20,7 +20,9 @@ nav:
     - section2/24-fall-C-programming.md
   # 论文阅读
   - Reviews:
-    - section3/index.md
+    - section3/SAMWISE.md
+    - section3/GLUS.md
+    - section3/SegAgent.md
   # 随笔/影评，乐评
   - Others:
     - section4/index.md
@@ -135,12 +137,12 @@ extra_javascript:
   # 网站标题点击功能
   - javascripts/header-navigation.js
   # MathJax
-  # - javascripts/mathjax.js
+  - javascripts/mathjax.js
   - https://cdn.jsdelivr.net/npm/polyfill/index.min.js
   - https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.js
   # Table Sort
   - https://cdn.jsdelivr.net/npm/tablesort/dist/tablesort.min.js
-  # - javascripts/tablesort.js
+  - javascripts/tablesort.js
   # mermaid
   - https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js
 
