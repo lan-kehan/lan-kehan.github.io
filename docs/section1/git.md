@@ -5,6 +5,7 @@
 ## 简单工作流
 
 初始化仓库，并且添加远程仓库
+
 ```bash
 git init
 git add .

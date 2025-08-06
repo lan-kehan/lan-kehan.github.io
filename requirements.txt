@@ -8,3 +8,4 @@ mkdocs-material
 mkdocs-timetoread-plugin
 neoteroi-mkdocs
 mkslides
+pymdown-extensions

@@ -28,3 +28,7 @@ jobs:
       - run: pip install -r requirements.txt
       - run: mkdocs build
       - run: mkdocs gh-deploy --force
+      - name: Debug build
+        run: |
+          ls -la docs/stylesheets/
+          mkdocs build --verbose
