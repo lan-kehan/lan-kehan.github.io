@@ -1,8 +1,444 @@
 [data-md-color-scheme="tmp"] {
-    --md-primary-fg-color:#1C1C1C;
+    /* 科技感主色调 - 深蓝紫渐变 */
+    --md-primary-fg-color: #00D4FF;
+    --md-primary-fg-color--light: #33E0FF;
+    --md-primary-fg-color--dark: #0099CC;
+    
+    /* 背景色 - 深色科技风 - 强制使用渐变背景 */
+    --md-default-bg-color: linear-gradient(135deg, #0A0A0F 0%, #1A1A2E 50%, #16213E 100%);
+    --md-default-fg-color: #E8F4FD;
+    --md-default-fg-color--light: #FFFFFF;
+    --md-default-fg-color--lighter: #F0F8FF;
+    --md-default-fg-color--lightest: #F8FCFF;
+    
+    /* 确保普通文字颜色 */
+    --md-typeset-color: #E8F4FD;
+    --md-typeset-p-color: #E8F4FD;
+    
+    /* 强调色 - 科技紫和青色 */
+    --md-accent-fg-color: #FF6B9D;
+    --md-accent-fg-color--transparent: rgba(255, 107, 157, 0.1);
+    
+    /* 代码块和技术内容 */
+    --md-code-bg-color: rgba(0, 20, 40, 0.8);
+    --md-code-fg-color: #00FFAA;
+    --md-code-hl-color: rgba(0, 255, 170, 0.15);
+    --md-code-hl-number-color: #FF6B9D;
+    --md-code-hl-special-color: #00D4FF;
+    --md-code-hl-function-color: #FFAA00;
+    --md-code-hl-constant-color: #AA88FF;
+    --md-code-hl-keyword-color: #FF6B9D;
+    --md-code-hl-string-color: #88FFAA;
+    
+    /* 链接和交互元素 */
+    --md-typeset-a-color: #00FFAA;
+    --md-typeset-a-color--hover: #33FFCC;
+    
+    /* 表格样式 */
+    --md-typeset-table-color: rgba(0, 212, 255, 0.12);
+    --md-typeset-table-color--light: rgba(0, 212, 255, 0.06);
+    
+    /* 分隔线和边框 */
+    --md-typeset-del-color: rgba(245, 101, 101, 0.15);
+    --md-typeset-ins-color: rgba(68, 255, 68, 0.15);
+    --md-typeset-mark-color: rgba(255, 235, 59, 0.2);
+    
+    /* 导航和侧边栏 */
+    --md-nav-bg-color: rgba(10, 10, 15, 0.95);
+    --md-nav-fg-color: #E8F4FD;
+    --md-nav-fg-color--hover: #FF6B9D;
+    
+    /* 搜索框 */
+    --md-search-result-bg-color: rgba(0, 20, 40, 0.9);
+    --md-search-result-bg-color--hover: rgba(0, 212, 255, 0.1);
+    
+    /* 按钮和控件 */
+    --md-admonition-bg-color: rgba(0, 20, 40, 0.4);
+    --md-admonition-fg-color: #E8F4FD;
+    
+    /* 滚动条样式 */
+    --md-scrollbar-thumb-color: rgba(0, 212, 255, 0.3);
+    --md-scrollbar-thumb-color--hover: rgba(0, 212, 255, 0.5);
+    
+    /* 阴影效果 - 增强科技感 */
+    --md-shadow-z1: 0 0.2rem 0.5rem rgba(0, 212, 255, 0.1), 
+                    0 0 0.05rem rgba(0, 212, 255, 0.25);
+    --md-shadow-z2: 0 0.3rem 1rem rgba(0, 212, 255, 0.15), 
+                    0 0 0.1rem rgba(0, 212, 255, 0.35);
+    --md-shadow-z3: 0 0.5rem 1.5rem rgba(0, 212, 255, 0.2), 
+                    0 0 0.15rem rgba(0, 212, 255, 0.45);
+}
+
+/* 科技感增强样式 */
+[data-md-color-scheme="tmp"] {
+    /* 自定义科技感背景渐变 - 应用到整个页面 */
+    background: linear-gradient(135deg, #0A0A0F 0%, #1A1A2E 50%, #16213E 100%) !important;
+    min-height: 100vh !important;
+}
+
+/* 确保body也有相同背景 */
+[data-md-color-scheme="tmp"] body {
+    background: linear-gradient(135deg, #0A0A0F 0%, #1A1A2E 50%, #16213E 100%) !important;
+    min-height: 100vh !important;
+}
+
+[data-md-color-scheme="tmp"] .md-header {
+    background: linear-gradient(90deg, rgba(15, 15, 25, 0.9) 0%, rgba(20, 20, 35, 0.9) 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(232, 244, 253, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+[data-md-color-scheme="tmp"] .md-nav__title {
+    color: #E8F4FD;
+    text-shadow: 0 0 10px rgba(232, 244, 253, 0.3);
+    font-weight: 600;
+    background: linear-gradient(90deg, rgba(255, 107, 157, 0.05), transparent);
+    border-bottom: 1px solid rgba(232, 244, 253, 0.1);
+}
+
+[data-md-color-scheme="tmp"] .md-nav__link--active {
+    color: #FF6B9D;
+    background: linear-gradient(90deg, rgba(255, 107, 157, 0.1), transparent);
+    box-shadow: 0 0 15px rgba(255, 107, 157, 0.2);
+}
+
+[data-md-color-scheme="tmp"] .md-typeset h1,
+[data-md-color-scheme="tmp"] .md-typeset h2 {
+    color: #E8F4FD;
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(232, 244, 253, 0.3);
+}
+
+[data-md-color-scheme="tmp"] .md-typeset h3,
+[data-md-color-scheme="tmp"] .md-typeset h4 {
+    color: #E8F4FD;
+    text-shadow: 0 0 8px rgba(232, 244, 253, 0.4);
+    font-weight: 600;
+}
+
+[data-md-color-scheme="tmp"] .md-typeset code {
+    background: linear-gradient(135deg, rgba(0, 20, 40, 0.8), rgba(0, 40, 80, 0.6));
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    box-shadow: inset 0 0 10px rgba(0, 212, 255, 0.1);
+    border-radius: 4px;
+    color: #00FFAA !important;
+}
+
+[data-md-color-scheme="tmp"] .md-typeset pre {
+    background: linear-gradient(135deg, rgba(0, 20, 40, 0.9), rgba(0, 40, 80, 0.7));
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
+    border-radius: 8px;
+    color: #00FFAA !important;
+}
+
+/* 确保缩进代码块也使用相同颜色 */
+[data-md-color-scheme="tmp"] .md-typeset pre code {
+    color: #00FFAA !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 围栏代码块（```）的特殊处理 */
+[data-md-color-scheme="tmp"] .md-typeset .highlight,
+[data-md-color-scheme="tmp"] .md-typeset .codehilite {
+    background: linear-gradient(135deg, rgba(0, 20, 40, 0.9), rgba(0, 40, 80, 0.7)) !important;
+    border: 1px solid rgba(0, 212, 255, 0.3) !important;
+    border-radius: 8px !important;
+}
+
+[data-md-color-scheme="tmp"] .md-typeset .highlight pre,
+[data-md-color-scheme="tmp"] .md-typeset .codehilite pre {
+    background: transparent !important;
+    border: none !important;
+    margin: 0 !important;
+    color: #00FFAA !important;
+}
+
+[data-md-color-scheme="tmp"] .md-typeset .highlight code,
+[data-md-color-scheme="tmp"] .md-typeset .codehilite code {
+    background: transparent !important;
+    border: none !important;
+    color: #00FFAA !important;
+}
+
+/* 语法高亮 - 简化版本 */
+[data-md-color-scheme="tmp"] .highlight,
+[data-md-color-scheme="tmp"] .codehilite { 
+    background: transparent !important; 
+    color: #00FFAA !important; 
+}
+
+/* 覆盖所有可能的代码元素 */
+[data-md-color-scheme="tmp"] .highlight *,
+[data-md-color-scheme="tmp"] .codehilite *,
+[data-md-color-scheme="tmp"] pre *,
+[data-md-color-scheme="tmp"] code * {
+    color: #00FFAA !important;
+}
+
+/* 基本语法高亮 */
+[data-md-color-scheme="tmp"] .highlight .k,    /* 关键字 */
+[data-md-color-scheme="tmp"] .highlight .kd,   /* 声明关键字 */
+[data-md-color-scheme="tmp"] .highlight .kr,   /* 保留关键字 */
+[data-md-color-scheme="tmp"] .highlight .kc,   /* 常量关键字 */
+[data-md-color-scheme="tmp"] .highlight .kp { color: #FF6B9D !important; font-weight: bold; }
+
+[data-md-color-scheme="tmp"] .highlight .s,    /* 字符串 */
+[data-md-color-scheme="tmp"] .highlight .s1,   /* 单引号字符串 */
+[data-md-color-scheme="tmp"] .highlight .s2,   /* 双引号字符串 */
+[data-md-color-scheme="tmp"] .highlight .sh { color: #88FFAA !important; }
+
+[data-md-color-scheme="tmp"] .highlight .m,    /* 数字 */
+[data-md-color-scheme="tmp"] .highlight .mi,   /* 整数 */
+[data-md-color-scheme="tmp"] .highlight .mf,   /* 浮点数 */
+[data-md-color-scheme="tmp"] .highlight .mb { color: #FFAA00 !important; }
+
+[data-md-color-scheme="tmp"] .highlight .c,    /* 注释 */
+[data-md-color-scheme="tmp"] .highlight .c1,   /* 单行注释 */
+[data-md-color-scheme="tmp"] .highlight .cm { color: #75715e !important; font-style: italic; }
+
+[data-md-color-scheme="tmp"] .highlight .nf,   /* 函数名 */
+[data-md-color-scheme="tmp"] .highlight .nc { color: #00FFAA !important; }
+
+[data-md-color-scheme="tmp"] .highlight .o,    /* 操作符 */
+[data-md-color-scheme="tmp"] .highlight .ow { color: #00D4FF !important; }
+
+/* YAML 特定语法高亮 */
+[data-md-color-scheme="tmp"] .highlight .nt { color: #00D4FF !important; font-weight: bold; } /* YAML 键名 */
+[data-md-color-scheme="tmp"] .highlight .p { color: #E8F4FD !important; } /* 标点符号，如冒号 */
+[data-md-color-scheme="tmp"] .highlight .nn { color: #FF6B9D !important; } /* YAML 值 */
+[data-md-color-scheme="tmp"] .highlight .na { color: #00FFAA !important; } /* 属性名 */
+[data-md-color-scheme="tmp"] .highlight .l { color: #88FFAA !important; } /* 字面量 */
+
+[data-md-color-scheme="tmp"] .md-search__input {
+    background: rgba(0, 20, 40, 0.8);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 20px;
+    color: #E8F4FD;
+    box-shadow: inset 0 0 10px rgba(0, 212, 255, 0.1);
+}
+
+[data-md-color-scheme="tmp"] .md-search__input:focus {
+    border-color: #00D4FF;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+[data-md-color-scheme="tmp"] .md-footer {
+    background: linear-gradient(90deg, rgba(10, 10, 15, 0.9), rgba(26, 26, 46, 0.9));
+    border-top: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+/* 滚动条科技风格 */
+[data-md-color-scheme="tmp"] ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+[data-md-color-scheme="tmp"] ::-webkit-scrollbar-track {
+    background: rgba(0, 20, 40, 0.3);
+    border-radius: 4px;
+}
+
+[data-md-color-scheme="tmp"] ::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #00D4FF, #FF6B9D);
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+[data-md-color-scheme="tmp"] ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #33E0FF, #FF8FB3);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+}
+
+/* 表格科技感样式 */
+[data-md-color-scheme="tmp"] .md-typeset table {
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
+}
+
+[data-md-color-scheme="tmp"] .md-typeset th {
+    background: linear-gradient(90deg, rgba(0, 212, 255, 0.2), rgba(255, 107, 157, 0.2));
+    color: #00D4FF;
+    text-shadow: 0 0 5px rgba(0, 212, 255, 0.5);
+}
+
+[data-md-color-scheme="tmp"] .md-typeset tr:hover {
+    background: rgba(0, 212, 255, 0.05);
+}
+
+/* 确保普通文字颜色正确显示 */
+[data-md-color-scheme="tmp"] .md-typeset p,
+[data-md-color-scheme="tmp"] .md-typeset li,
+[data-md-color-scheme="tmp"] .md-typeset span,
+[data-md-color-scheme="tmp"] .md-typeset div,
+[data-md-color-scheme="tmp"] .md-content {
+    color: #E8F4FD !important;
+}
+
+[data-md-color-scheme="tmp"] .md-typeset strong {
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+[data-md-color-scheme="tmp"] .md-typeset em {
+    color: #F0F8FF;
+    font-style: italic;
+}
+
+[data-md-color-scheme="tmp"] .md-typeset blockquote {
+    border-left: 4px solid #00D4FF;
+    background: rgba(0, 212, 255, 0.05);
+    color: #E8F4FD;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.1);
+}
+
+/* 导航栏整体样式优化 */
+[data-md-color-scheme="tmp"] .md-nav__link {
+    color: #E8F4FD;
+    transition: all 0.3s ease;
+}
+
+[data-md-color-scheme="tmp"] .md-nav__link:hover {
+    color: #FF6B9D;
+    text-shadow: 0 0 8px rgba(255, 107, 157, 0.4);
+    transform: translateX(4px);
+}
+
+[data-md-color-scheme="tmp"] .md-nav__item--nested > .md-nav__link {
+    color: #C0D0E0;
+}
+
+[data-md-color-scheme="tmp"] .md-nav__item--nested > .md-nav__link:hover {
+    color: #00FFAA;
+    text-shadow: 0 0 6px rgba(0, 255, 170, 0.3);
+}
+
+[data-md-color-scheme="tmp"] .md-nav {
+    background: linear-gradient(180deg, rgba(10, 10, 15, 0.98), rgba(26, 26, 46, 0.95));
+    border-right: 1px solid rgba(232, 244, 253, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* 章节标题特殊样式 (section1, section2等) */
+[data-md-color-scheme="tmp"] .md-nav__item--section > .md-nav__link {
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 0.95em;
+    padding: 0.8rem 1rem;
+    background: linear-gradient(90deg, rgba(255, 107, 157, 0.1), rgba(0, 212, 255, 0.05));
+    margin: 0.2rem 0;
+    border-radius: 0 6px 6px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+[data-md-color-scheme="tmp"] .md-nav__item--section > .md-nav__link:hover {
+    color: #FF6B9D;
+    background: linear-gradient(90deg, rgba(255, 107, 157, 0.2), rgba(0, 212, 255, 0.1));
+    text-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+    transform: translateX(2px);
+}
+
+/* 顶部导航栏章节标签 */
+[data-md-color-scheme="tmp"] .md-tabs {
+    background: rgba(15, 15, 25, 0.8);
+    border-bottom: 1px solid rgba(176, 192, 208, 0.1);
+}
+
+[data-md-color-scheme="tmp"] .md-tabs__link {
+    color: #B0C0D0;
+    font-weight: 500;
+}
+
+[data-md-color-scheme="tmp"] .md-tabs__link:hover {
+    color: #E8F4FD;
+    text-shadow: 0 0 6px rgba(232, 244, 253, 0.3);
+    background: rgba(232, 244, 253, 0.05);
+}
+
+[data-md-color-scheme="tmp"] .md-tabs__link--active {
+    color: #FFFFFF;
+    border-bottom: 2px solid #C0D0E0;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* 搜索提示文本区域修复 */
+[data-md-color-scheme="tmp"] .md-search-result__meta {
+    background: rgba(15, 15, 25, 0.9) !important;
+    color: #B0C0D0 !important;
+    border: none !important;
+}
+
+[data-md-color-scheme="tmp"] .md-search__message {
+    background: rgba(15, 15, 25, 0.9) !important;
+    color: #B0C0D0 !important;
+    border: none !important;
+}
+
+[data-md-color-scheme="tmp"] .md-search-result__teaser {
+    background: rgba(15, 15, 25, 0.9) !important;
+    color: #C0D0E0 !important;
+}
+
+[data-md-color-scheme="tmp"] .md-search__output .md-search__message,
+[data-md-color-scheme="tmp"] .md-search__output .md-search-result__meta {
+    background: rgba(15, 15, 25, 0.9) !important;
+    color: #B0C0D0 !important;
+    padding: 0.5rem 1rem !important;
+}
+
+/* 搜索结果计数和提示 */
+[data-md-color-scheme="tmp"] .md-search__output::before {
+    background: rgba(15, 15, 25, 0.9) !important;
+    color: #B0C0D0 !important;
+}
+
+[data-md-color-scheme="tmp"] .md-search__output > * {
+    background: rgba(15, 15, 25, 0.9) !important;
 }
 
 [data-md-color-scheme="slate"] {
     --md-primary-fg-color:#1C1C1C;
     --md-default-bg-color:#151515;
+}
+
+/* 让网站标题成为可点击的链接 */
+[data-md-color-scheme="tmp"] .md-header__title {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+[data-md-color-scheme="tmp"] .md-header__title:hover {
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    transform: scale(1.02);
+}
+
+/* 为网站标题添加点击事件的JavaScript将通过HTML注入 */
+[data-md-color-scheme="tmp"] .md-header__title .md-header__button {
+    pointer-events: none;
+}
+
+/* 确保主要容器透明，让背景渐变穿透 */
+[data-md-color-scheme="tmp"] .md-container,
+[data-md-color-scheme="tmp"] .md-main,
+[data-md-color-scheme="tmp"] .md-content {
+    background: transparent !important;
+}
+
+/* 强制整个页面使用渐变背景 */
+[data-md-color-scheme="tmp"] html,
+[data-md-color-scheme="tmp"] body,
+[data-md-color-scheme="tmp"] .md-container,
+[data-md-color-scheme="tmp"] .md-main__inner,
+[data-md-color-scheme="tmp"] .md-content__inner {
+    background-image: linear-gradient(135deg, #0A0A0F 0%, #1A1A2E 50%, #16213E 100%) !important;
+    background-attachment: scroll !important;
+    background-repeat: repeat !important;
 }

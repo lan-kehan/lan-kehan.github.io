@@ -1,17 +1,22 @@
-# Welcome to MkDocs
+# Lan's Blog
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+保存一些论文笔记，上课笔记，以及一些随想。
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+```yaml
+nav:
+  # 主页
+  - Home: index.md 
+  # 工具使用/技术记录
+  - Cheat: 
+    - section1/git.md
+    - section1/linux.md
+  # 课程笔记/资料整理
+  - Notes:
+    - section2/note_1.md
+  # 论文阅读
+  - Reviews:
+    - section3/index.md
+  # 随笔/影评，乐评
+  - Others:
+    - section4/index.md
+```

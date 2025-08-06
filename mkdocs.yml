@@ -1,5 +1,5 @@
 # 项目设置
-site_name: MyDocs
+site_name: Lan's Blog
 site_url: https://lan-kehan.github.io/
 repo_url: https://github.com/lan-kehan/lan-kehan.github.io
 repo_name: lan-kehan/lan-kehan.github.io
@@ -9,32 +9,50 @@ site_author: lan-kehan
 copyright: lan-kehan
 
 nav:
-  # 已启用 include_dir_to_nav 插件，可使用目录名导航
-  - section1:
-    - section1/index.md
-  - section2:
-    - section2/index.md
+  # 主页
+  - Home: index.md 
+  # 工具使用/技术记录
+  - Cheat: 
+    - section1/git.md
+    - section1/linux.md
+  # 课程笔记/资料整理
+  - Notes:
+    - section2/24-fall-C-programming.md
+  # 论文阅读
+  - Reviews:
+    - section3/index.md
+  # 随笔/影评，乐评
+  - Others:
+    - section4/index.md
 
 theme:
   name: material
   # logo: assets/zjusct.svg
   # favicon: assets/zjusct-hpc101.svg
   palette:
-    - media: "(prefers-color-scheme)"
-      primary: pink
-      toggle:
-        icon: material/brightness-auto
-        name: 切换至浅色模式
+    # 浅色主题
     - media: "(prefers-color-scheme: light)"
-      scheme: tmp
+      scheme: default
+      primary: blue
+      accent: blue
       toggle:
         icon: material/brightness-7
-        name: 切换至深色模式
+        name: 切换至深色主题
+    # 深色主题
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: blue
+      accent: blue
       toggle:
         icon: material/brightness-4
-        name: 根据系统模式切换主题
+        name: 切换至科技风主题
+    # 科技风主题
+    - scheme: tmp
+      primary: cyan
+      accent: pink
+      toggle:
+        icon: material/ghost
+        name: 切换至浅色主题
   features:
     # 代码块操作
     - content.code.copy
@@ -114,6 +132,8 @@ markdown_extensions:
   - neoteroi.cards
 
 extra_javascript:
+  # 网站标题点击功能
+  - javascripts/header-navigation.js
   # MathJax
   # - javascripts/mathjax.js
   - https://cdn.jsdelivr.net/npm/polyfill/index.min.js
@@ -126,7 +146,6 @@ extra_javascript:
 
 extra_css:
   - stylesheets/fonts.css
-  - stylesheets/counter.css
   - stylesheets/theme.css
   # neoteroi
   - stylesheets/neoteroi-v1.1.2.css
