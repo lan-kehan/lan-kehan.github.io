@@ -83,6 +83,18 @@ merge和rebase的区别在于，merge会创建一个新的合并提交，而reba
 git remote -v
 ```
 
+!!! tip
+
+    如果发现是别人的仓库，先fork一份。
+
+    如果已经在别人的origin/main下游有本地的提交，可以先替换成自己的库
+
+    ```bash
+    git remote set-url origin <your-repository-url>
+    ```
+
+    如果没有冲突，这将成功把origin替换成自己的。
+
 先把远程的分支拉下来，指定分支名
 
 ```bash
@@ -131,9 +143,10 @@ git checkout <branch-name>
 git reset --soft HEAD~2
 ```
 
-reset --hard会丢弃当前工作区和暂存区的所有修改，把工作区重置到指定的提交，之后的提交也会丢失。
-如果用--soft选项，会保留工作区和暂存区的修改，只移动HEAD指针。
-如果用--mixed选项（默认），会保留工作区修改，但清空暂存区。
+!!! tip
+    reset --hard会丢弃当前工作区和暂存区的所有修改，把工作区重置到指定的提交，之后的提交也会丢失。
+    如果用--soft选项，会保留工作区和暂存区的修改，只移动HEAD指针。
+    如果用--mixed选项（默认），会保留工作区修改，但清空暂存区。
 
 还可以用checkout命令来查看某个历史提交，进入detached HEAD状态
 
@@ -141,12 +154,14 @@ reset --hard会丢弃当前工作区和暂存区的所有修改，把工作区�
 git checkout <commit-id>
 ```
 
-注意：这会让工作区内容变成指定提交的状态（改变HEAD指针），但不会改变分支指针。
-要返回原分支，使用：
+!!! tip
 
-```bash
-git checkout <branch-name>
-```
+    注意：这会让工作区内容变成指定提交的状态（改变HEAD指针），但不会改变分支指针。
+    要返回原分支，使用：
+
+    ```bash
+    git checkout <branch-name>
+    ```
 
 临时储藏工作区修改
 
@@ -181,6 +196,7 @@ git stash clear  # 清空所有储藏
 ```bash
 git checkout <commit-id> -- <file>
 ```
+
 注意此时HEAD不会改变。
 
 这个时候如果要从上游提交开始再创建新的分支
@@ -189,4 +205,4 @@ git checkout <commit-id> -- <file>
 git checkout -b new-branch <commit-id>
 ```
 
-这相当于在上游提交的基础上创建了一个新的分支，HEAD指针会指向new-branch分支
+这相当于在上游提交的基础上创建了一个新的分支，HEAD指针会指向new-branch分支.
