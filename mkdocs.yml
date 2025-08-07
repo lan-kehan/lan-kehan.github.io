@@ -18,6 +18,7 @@ nav:
   # 课程笔记/资料整理
   - Notes:
     - section2/24-fall-C-programming.md
+    - section2/LeetCode.md
   # 论文阅读
   - Reviews:
     - section3/SAMWISE.md
