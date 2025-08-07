@@ -110,3 +110,4 @@ Following [11, 21, 29, 43, 44], we undergo pre-training for 6 epochs on RefCOCO/
 - 在强大的SAM2以及text encoder上做cross-modal adaptation
 - 提供了一种方法来把现有的强大的模型用到别的任务的方法，具体来说就是想办法加模块做adaptation
 - 如何把这种工作做的简单有效：一是参考之前的方法，二是从intuition出发（比如这里修正tracking bias）
+  

@@ -1,6 +1,6 @@
 # Git使用
 
-学习branching的小网站 [Learn Git Branching](https://learngitbranching.js.org/) 
+学习branching的小网站 [Learn Git Branching](https://learngitbranching.js.org/)
 
 ## 简单工作流
 
