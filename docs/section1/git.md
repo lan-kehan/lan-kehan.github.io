@@ -175,3 +175,18 @@ git stash clear  # 清空所有储藏
 ```
 
 这里stash同时保留工作区和暂存区的状态，恢复时会尽量保持原来的状态。
+
+如果要把工作区某个文件恢复到某个提交的状态，可以用
+
+```bash
+git checkout <commit-id> -- <file>
+```
+注意此时HEAD不会改变。
+
+这个时候如果要从上游提交开始再创建新的分支
+
+```bash
+git checkout -b new-branch <commit-id>
+```
+
+这相当于在上游提交的基础上创建了一个新的分支，HEAD指针会指向new-branch分支
