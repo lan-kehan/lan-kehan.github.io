@@ -54,8 +54,9 @@ class Solution:
         return bin2dec(binGrayCode(n))
 ```
 
-## 15. 3Sum
+## 15.Three Sum
 
+对于给定数组的所有三元子数组，假设子数组间两两至少有一个不同元素，求所有这样的子数组。
 最初的想法是正、负、零分成三类，分类讨论。
 
 ```python
@@ -132,8 +133,9 @@ class Solution:
         return [list(t) for t in res]
 ```
 
-## 72. Edit Distance
+## 72.Edit Distance
 
+定义s1和s2的编辑距离为将s1变成s2所需的最少操作数，允许的操作为插入、删除、替换一个字符。求两个字符串的编辑距离。
 这里想到dp就可以，`dp[i][j]`表示s1前i个字符和s2前j个字符的编辑距离。
 
 ```python
