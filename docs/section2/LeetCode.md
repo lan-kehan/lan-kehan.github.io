@@ -104,7 +104,7 @@ class Solution:
         return [list(t) for t in res]
 ```
 
-事实上，根本不要分类讨论，只要排序，然后固定一个数，剩下的两个数用双指针即可。
+然后发现这样讨论是多余的，完全等价于直接固定一个数，剩下的两个数用双指针即可。
 
 ```python
 class Solution:
