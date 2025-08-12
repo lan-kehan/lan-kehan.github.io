@@ -21,9 +21,9 @@ nav:
     - section2/LeetCode.md
   # 论文阅读
   - Reviews:
-    - section3/SAMWISE.md
-    - section3/GLUS.md
-    - section3/SegAgent.md
+    - section3/论文精读-SAMWISE.md
+    - section3/论文精读-GLUS.md
+    - section3/论文精读-SegAgent.md
   # 随笔/影评，乐评
   - Others:
     - section4/index.md
