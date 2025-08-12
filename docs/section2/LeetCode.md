@@ -53,3 +53,81 @@ class Solution:
 
         return bin2dec(binGrayCode(n))
 ```
+
+## 15. 3Sum
+
+最初的想法是正、负、零分成三类，分类讨论。
+
+```python
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        negs = sorted(e for e in nums if e < 0)[::-1]
+        zeros = [e for e in nums if e == 0]
+        posts = sorted(e for e in nums if e > 0)
+
+        res = set()
+
+        # case: 包含0
+        if zeros:
+            i, j = 0, 0
+            while i < len(posts) and j < len(negs):
+                s = posts[i] + negs[j]
+                if s == 0:
+                    res.add((posts[i], negs[j], 0))
+                    i += 1
+                    j += 1
+                elif s > 0:
+                    j += 1
+                else:
+                    i += 1
+            if len(zeros) >= 3:
+                res.add((0, 0, 0))
+
+        # case: 两负一正
+        def two_sum(arr, target, fixed):
+            l, r = 0, len(arr) - 1
+            while l < r:
+                s = arr[l] + arr[r]
+                if s == target:
+                    res.add((fixed, arr[l], arr[r]))
+                    l += 1
+                elif s > target:
+                    l += 1 if arr is negs else r -= 1
+                else:
+                    r -= 1 if arr is negs else l += 1
+
+        for p in posts:
+            two_sum(negs, -p, p)
+        for n in negs:
+            two_sum(posts, -n, n)
+
+        return [list(t) for t in res]
+```
+
+事实上，根本不要分类讨论，只要排序，然后固定一个数，剩下的两个数用双指针即可。
+
+```python
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        nums.sort()
+        res = set()
+        for i in range(len(nums) - 2):
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue  
+            l, r = i + 1, len(nums) - 1
+            while l < r:
+                s = nums[i] + nums[l] + nums[r]
+                if s == 0:
+                    res.add((nums[i], nums[l], nums[r]))
+                    l += 1
+                    r -= 1
+                    while l < r and nums[l] == nums[l - 1]:  
+                        l += 1
+                    while l < r and nums[r] == nums[r + 1]:
+                        r -= 1
+                elif s < 0:
+                    l += 1
+                else:
+                    r -= 1
+        return [list(t) for t in res]
+```
