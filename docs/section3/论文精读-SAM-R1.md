@@ -1,3 +1,5 @@
+# 论文精读-SAM-R1
+
 [https://arxiv.org/pdf/2505.22596](https://arxiv.org/pdf/2505.22596)
 
 本文中作者尝试使用SAM作为reward feedback来进行multimodal segmentation model的训练
@@ -22,13 +24,12 @@ base model是Qwen2.5VL-7B，segmentation model是SAM2-Large，image size是840 $
 在三个refcoco的datasets上和Seg-Zero差不多
 
 四个消融实验：
+
 1. tiered threshold有效（应该指的是reward function）
 2. GRPO的两个改进有效
 3. KL constraint有效
 4. Negative Reference Points没必要
 
 ## Conclusion
+
 这篇工作用RL做image referring segmentation，主要贡献是证明GRPO改进的有效性，以及搭建了使用SAM 2 作为reward model的pipeline并且构建了对应的reward function
-
-
-
