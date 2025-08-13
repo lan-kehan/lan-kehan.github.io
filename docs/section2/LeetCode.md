@@ -160,3 +160,58 @@ class Solution:
 
         return dp[m][n]
 ```
+
+## 55.Jump Game
+
+给定一个非负整数数组`nums`，你最初位于数组的第一个位置。数组中的每个元素代表你在该位置可以跳跃的最大长度。判断你是否能够到达最后一个位置。
+
+考虑使用双指针，维护一个最长到达的位置.
+
+```python
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        
+        i = 0
+        reach = 0
+        n = len(nums)
+
+        while i < n:
+            
+            if i > reach:
+                return False
+
+            reach = max(reach, nums[i] + i)
+            i += 1
+
+        return True
+```
+
+## 274.H Index
+
+给定一个数组`citations`，其中`citations[i]`表示第`i`篇论文的引用次数。计算该数组的H指数。
+
+直接对`[0, len(citations)]`的闭区间进行二分查找。
+
+```python
+class Solution:
+    def hIndex(self, citations: List[int]) -> int:
+        cit = sorted(citations)
+
+        if sum(cit) == 0:
+            return 0
+
+        begin, end = 0, len(cit)
+        mid = begin + (end - begin) // 2
+        h = 1
+
+        while begin <= end:
+            if cit[-mid] >= mid:
+                if mid > h:
+                    h = mid
+                begin = mid + 1
+            else:
+                end = mid - 1
+            mid = begin + (end - begin) // 2
+
+        return h
+```
