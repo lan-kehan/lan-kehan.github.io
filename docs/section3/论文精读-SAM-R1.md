@@ -8,7 +8,7 @@
 
 作者主要使用三个Reward functions，分别是IOU, Think Format Reward以及Output Format
 ![method](assets/samr1_1.png)
-算法上用GRPO避免了使用critic model，然后对GRPO的优化对象进行改进，即采用了R1范式，没有对每个output sequence长度取平均，而是对所有sequence长度和取平均(token-level loss normalization)，以及使用了high-low不同阈值asymmetric clipping
+算法上用GRPO避免了使用critic model，然后对GRPO的优化对象进行改进，即采用了所谓R1范式，没有对每个output sequence长度取平均，而是对所有sequence长度和取平均(token-level loss normalization)，以及使用了high-low不同阈值asymmetric clipping
 ![alg](assets/samr1_2.png)
 
 ## Experiment
