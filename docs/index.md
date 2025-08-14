@@ -12,6 +12,7 @@ nav:
   # 笔记
   - Notes:
     - section2/*
+  # 论文阅读
   - Reviews:
     - section3/*
   # 其他
