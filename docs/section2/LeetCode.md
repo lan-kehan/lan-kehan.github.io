@@ -215,3 +215,52 @@ class Solution:
 
         return h
 ```
+
+## 114.Flatten Binary Tree to Linked List
+
+把二叉树展开成链表（左节点空，右节点指向前序遍历的下一个节点）
+
+简单的想法是先遍历节点，存下来再连接
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def flatten(self, root: Optional[TreeNode]) -> None:
+        """
+        Do not return anything, modify root in-place instead.
+        """
+        def tra(root):
+            if not root:
+                return []
+            return [root]+tra(root.left)+tra(root.right)
+
+        fl = tra(root)
+        for i in range(len(fl)-1):
+            fl[i].left = None
+            fl[i].right = fl[i+1]
+```
+
+优化一个原地遍历的版本，且不用递归
+
+```python
+class Solution:
+    def flatten(self, root: Optional[TreeNode]) -> None:
+        """
+        Do not return anything, modify root in-place instead.
+        """
+        curr = root
+        while curr:
+            if curr.left:
+                rightmost = curr.left
+                while rightmost.right:
+                    rightmost = rightmost.right
+                rightmost.right = curr.right
+                curr.right = curr.left
+                curr.left = None
+            curr = curr.right
+```

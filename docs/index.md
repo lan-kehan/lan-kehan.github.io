@@ -6,19 +6,15 @@
 nav:
   # 主页
   - Home: index.md 
-  # 工具使用/技术记录
+  # 工具使用
   - Cheat: 
-    - section1/git.md
-    - section1/linux.md
-  # 课程笔记/资料整理
+    - section1/*
+  # 笔记
   - Notes:
-    - section2/24-fall-C-programming.md
-  # 论文阅读
+    - section2/*
   - Reviews:
-    - section3/SAMWISE.md
-    - section3/GLUS.md
-    - section3/SegAgent.md
-  # 随笔/影评，乐评
+    - section3/*
+  # 其他
   - Others:
-    - section4/index.md
+    - section4/*
 ```
