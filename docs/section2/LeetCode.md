@@ -284,3 +284,20 @@ class Solution:
                     
         return max(dp)
 ```
+
+可以优化一个贪心 + 二分。维护最小的子序列。
+
+```python
+from bisect import bisect_left
+
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        sub = []
+        for num in nums:
+            pos = bisect_left(sub, num)  
+            if pos == len(sub):
+                sub.append(num)  
+            else:
+                sub[pos] = num  
+        return len(sub)
+```
