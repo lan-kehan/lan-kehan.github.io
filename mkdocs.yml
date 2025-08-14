@@ -19,6 +19,7 @@ nav:
   - Notes:
     - section2/24-fall-C-programming.md
     - section2/LeetCode.md
+    - section2/RL4LLM.md
   # 论文阅读
   - Reviews:
     - section3/论文精读-SAMWISE.md
