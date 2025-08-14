@@ -264,3 +264,23 @@ class Solution:
                 curr.left = None
             curr = curr.right
 ```
+
+## 300. Longest Increasing Subsequence
+
+给定一个整数数组`nums`，找到其中最长递增子序列的长度。
+
+想到dp就可以.
+
+```python
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        n = len(nums)
+        dp = [1 for _ in range(n)]
+    
+        for i in range(n):
+            for dp_j, nums_j in zip(dp[:i][::-1], nums[:i][::-1]):
+                if nums_j < nums[i] and dp_j + 1 > dp[i]:
+                    dp[i] = dp_j + 1
+                    
+        return max(dp)
+```
