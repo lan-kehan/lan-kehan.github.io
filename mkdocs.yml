@@ -15,6 +15,7 @@ nav:
   - Cheat: 
     - section1/git.md
     - section1/linux.md
+    - section1/docker.md
   # 课程笔记/资料整理
   - Notes:
     - section2/24-fall-C-programming.md
