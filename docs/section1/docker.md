@@ -1,5 +1,9 @@
 # Docker备忘
 
+参考
+
+<https://summer25.net9.org/backend/docker/note/>
+
 从镜像创建一个容器并且运行
 ```bash
 docker run
@@ -86,6 +90,30 @@ CMD ["./main"]
 !!! tip
     docker镜像有分层特性，因此RUN很多东西的时候最好用`&&`连接
 
+!!! tip
+    还可以分阶段构建
+    ```bash
+    # build
+    FROM ubuntu AS builder
+
+    WORKDIR /usr/src/cpp
+
+    ENV DEBIAN_FRONTEND=noninteractive
+
+    RUN apt update && apt install -y build-essential
+
+    COPY main.cpp .
+
+    RUN g++ main.cpp -o main -static
+
+    # runtime
+    FROM scratch
+
+    COPY --from=builder /usr/src/cpp/main .
+
+    CMD ["./main"]
+    ```
+
 build的时候可以传代理
 
 ```bash
@@ -103,4 +131,36 @@ docker run -rm cpp:1.0
 
 ```bash
 COPY main.cpp
+```
+
+## 数据
+
+**数据卷**
+
+用`type=volume`，可省略
+
+```bash
+docker volume create database
+docker volue ls
+docker volume inspect database
+docker volume rm database
+```
+
+```bash
+docker run --name web_backend \
+    --mount source=database, target=/app/database \
+    backend
+docker inspect web_backend
+```
+
+**主机目录**
+
+用`type=bind`
+
+```bash
+docker run --name web_backend \
+    --mount source=database,target=/app/database \
+    --mount type=bind,source=/usr/apps/web_database,target=/app/database \
+    --mount type=bind,source=/usr/apps/web_app/.env,target=/app/.env,readonly \
+    backend
 ```
