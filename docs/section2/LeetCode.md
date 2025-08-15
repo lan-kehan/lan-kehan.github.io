@@ -301,3 +301,43 @@ class Solution:
                 sub[pos] = num  
         return len(sub)
 ```
+
+## 399. Evaluate Division
+
+给一些字母代表的除数和被除数，以及对应的商，求新给的查询的对应的商。
+
+直接构建邻接图进行bfs.
+
+```python
+from collections import deque, defaultdict
+
+class Solution:
+    def calcEquation(self, equations: List[List[str]], values: List[float], queries: List[List[str]]) -> List[float]:
+        g = defaultdict(list)
+        for (a, b), val in zip(equations, values):
+          g[a].append((b, val))
+          g[b].append((a, 1.0 / val))
+
+        def bfs(start, end):
+
+          if start not in g or end not in g:
+            return -1.0
+          if start == end:
+            return 1.0
+
+          visited = set([start])
+          q = deque([(start, 1.0)])
+
+          while q:
+            node, cur_val = q.popleft()
+            if node == end:
+              return cur_val
+            for nei, wei in g[node]:
+              if nei not in visited:
+                visited.add(nei)
+                q.append((nei, wei * cur_val))
+
+          return -1.0
+
+        return [bfs(a, b) for a, b in queries]
+```
