@@ -341,3 +341,142 @@ class Solution:
 
         return [bfs(a, b) for a, b in queries]
 ```
+
+## 322. Coin Change
+
+经典dp，维护一个对于每个值所需最小硬币数量的数列，每次引入一个新的硬币更新这个数列.
+
+```python
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        dp = [amount + 1 for _ in range(amount+1)]
+        dp[0] = 0
+
+        for coin in coins:
+            for i in range(coin, amount+1):
+                dp[i] = min(dp[i-coin] + 1, dp[i])
+                    
+
+        return dp[-1] if dp[-1] < amount + 1 else -1
+```
+
+## 287. Find The Duplicate Number
+
+二分，如果小于mid的不足mid，说明重复数至少是mid，
+注意我们退出条件是`start >= end - 1`，否则当`start == end - 1`时，如果答案正好是start，会死循环.
+因此我们还需要处理最后的小情况.
+
+```python
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        start, end = 1, len(nums) - 1
+
+        while start < end - 1:
+            
+            mid = start + (end - start) // 2
+        
+            cnt = sum([num < mid for num in nums])
+    
+            if cnt >= mid:
+                end = mid - 1
+            else:
+                start = mid
+
+        for t in range(start, end + 1):
+            cnt = sum([t == num for num in nums])
+            if cnt > 1:
+                return t
+
+```
+
+## 139. Word Break
+
+字符串`s`能否被`wordDict`中一个或多个（可重复，可遗漏）字符拼成.
+
+方法一是直接bfs，可以过
+
+```python
+class Solution:
+    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        
+        cur = set([s])
+
+        while True:
+            new = set()
+            for word in wordDict:
+                for c in cur:
+                    if c[:len(word)] == word:
+                        new.add(c[len(word):])
+            if '' in new:
+                return True
+            if not new:
+                return False
+            cur = new
+```
+
+方法二是dp，主要得想到dp的递推.
+
+```python
+class Solution:
+    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        
+        dp = [False] * (len(s) + 1)
+        dp[0] = True
+        wordDict = set(wordDict)
+
+        for i in range(1, len(dp)):
+            for j in range(i):
+                if dp[j] and s[j:i] in wordDict:
+                    dp[i] = True
+
+        return dp[-1]
+```
+
+## 688. Knight Probability In Chessboard
+
+马在走k步棋盘上的概率.
+
+!!! note
+    python初始化一个全是0的二维数组，应该写成
+    ```python
+    dp = [[0] * n for _ in range(n)]
+    ```
+    如果写成
+    ```python
+    dp = [[0] * n] * n
+    ```
+    则每一行都是同一个列表
+
+```python
+class Solution:
+    def knightProbability(self, n: int, k: int, row: int, column: int) -> float:
+
+        moves = {
+            (-2, 1),
+            (-1, 2),
+            (1, 2),
+            (2, 1),
+            (2, -1),
+            (1, -2),
+            (-1, -2),
+            (-2, -1)
+        }
+
+        dp = [[0] * n for _ in range(n)]
+        dp[row][column] = 1
+        scope = set(range(n))
+
+        for _ in range(k):
+            new_dp = [[0] * n for _ in range(n)]
+            for i in range(n):
+                for j in range(n):
+                    if dp[i][j] == 0:
+                        continue
+                    else:
+                        for move in moves:
+                            if i + move[0] in scope and j + move[1] in scope:
+                                new_dp[i + move[0]][j + move[1]] += dp[i][j] * 0.125
+            dp = new_dp
+
+        return sum([sum(row) for row in dp])
+```
