@@ -480,3 +480,41 @@ class Solution:
 
         return sum([sum(row) for row in dp])
 ```
+
+## 5. Longest Palindromic Substring
+
+最长回文子串，直接dp，注意遍历顺序，从长度小的开始.
+
+```python
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        n = len(s)
+        if n == 1:
+            return s
+        
+        max_len = 1
+        max_begin = 0
+
+        dp = [[False] * n for _ in range(n)]
+        for i in range(n):
+            dp[i][i] = True
+
+        for leng in range(2, n+1):
+            for i in range(n):
+                j = leng + i - 1
+                if j >= n:
+                    break
+
+                if s[i] != s[j]:
+                    dp[i][j] = False
+                else:
+                    if j - i < 3:
+                        dp[i][j] = True
+                    else:
+                        dp[i][j] = dp[i+1][j-1]
+                
+                if dp[i][j] and leng > max_len:
+                    max_len = leng
+                    max_begin = i 
+        return s[max_begin:max_begin+max_len]
+```
