@@ -518,3 +518,22 @@ class Solution:
                     max_begin = i 
         return s[max_begin:max_begin+max_len]
 ```
+
+## 3075. Maximize Happiness Of Selected Children
+
+给定一个`happiness`列表，代表每个孩子的幸福度。选择`k`个孩子，每次选完后，剩下的孩子幸福度会减少1。求最大化选中孩子的总幸福度。
+
+很明显是贪心选择幸福度最高的孩子，但是这里要注意写法，避免不必要的开销。
+
+```python
+class Solution:
+    def maximumHappinessSum(self, happiness: List[int], k: int) -> int:
+        s = 0
+        happiness = sorted(happiness)[::-1]
+        for i in range(k):
+            cur = happiness[i] - i
+            if cur > 0:
+                s += cur
+
+        return s
+```
